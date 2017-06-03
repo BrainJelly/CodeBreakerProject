@@ -7,7 +7,7 @@ function guess() {
 }
 
 //implement new functions here
-function setHiddenFields(){
+function setHiddenFields() {
     answer.value = Math.floor(Math.random() * 10000).toString();
     while (answer.value.length < 4) {
         answer.value = "0" + answer.value;
@@ -15,4 +15,16 @@ function setHiddenFields(){
 
     // reset the user attempts
     attempt = 0;
+}
+
+function setMessage(msg) {
+    document.getElementById('message').innerHTML = msg;
+}
+
+function validateInput(input) {
+    if (input.value.length == 4) {
+        return true;
+    }
+    setMessage("Guesses must be exactly 4 characters long");
+    return false;
 }
